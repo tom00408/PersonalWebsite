@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
+import tomImg from '../assets/tom.jpg'
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -11,12 +12,32 @@ const HomeWrapper = styled.div`
 
 const Hero = styled(motion.section)`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   min-height: 40vh;
   padding-left: 6vw;
   padding-right: 6vw;
+  gap: 3.5rem;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+`
+
+const HeroImg = styled(motion.img)`
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);
+  border: 3px solid #fff2;
+  background: #222;
+  @media (max-width: 800px) {
+    width: 110px;
+    height: 110px;
+  }
 `
 
 const Name = styled(motion.h1)`
@@ -34,6 +55,12 @@ const Claim = styled(motion.p)`
   color: #bdbdbd;
   margin-bottom: 2.5rem;
   max-width: 600px;
+`
+
+const HeroText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `
 
 const Grid = styled.div`
@@ -110,8 +137,17 @@ const Home = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
+      <HeroImg
+        src={tomImg}
+        alt="Tom Tiedtke"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+      />
+      <HeroText>
       <Name>Tom Tiedtke</Name>
       <Claim>Websites, Mobile-Apps & Prozessoptimierung</Claim>
+      </HeroText>
     </Hero>
     <Grid>
       <Card
@@ -131,20 +167,7 @@ const Home = () => (
           <TechItem>Firebase</TechItem>
         </TechList>
       </Card>
-      <Card
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-      >
-        <CardTitle>Statement</CardTitle>
-        <Quote
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          "Gutes Design ist für mich, wenn Technik und Ästhetik verschmelzen und Nutzer begeistert werden."
-        </Quote>
-      </Card>
+     
       <Card
         initial={{ opacity: 0, x: -60 }}
         animate={{ opacity: 1, x: 0 }}
@@ -152,11 +175,11 @@ const Home = () => (
       >
         <CardTitle>Letztes Projekt</CardTitle>
         <CardText>
-          Interaktive Portfolio-Plattform mit animierten Übergängen, dynamischem Content und responsivem Design. <br />
-          <span style={{ color: '#fff', fontWeight: 600 }}>Stack:</span> React, Framer Motion, Vite
+          Der MTV Geismar Fan Shop <br />
+          <span style={{ color: '#fff', fontWeight: 600 }}>Stack:</span> Vite, React, Firebase
         </CardText>
         <a
-          href="https://wordle.tomtiedtke.de"
+          href="https://shop.mtvgeismar.de"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -174,7 +197,7 @@ const Home = () => (
           onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.18)'}
           onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.08)'}
         >
-          👉 wordle.tomtiedtke.de
+          👉 Zur Website
         </a>
       </Card>
     </Grid>

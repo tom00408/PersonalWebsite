@@ -119,7 +119,6 @@ const OverlayLink = styled(motion(Link))`
 
 const navItems = [
   { path: '/', label: 'Home' },
-  { path: '/about', label: 'Über mich' },
   { path: '/projects', label: 'Projekte' },
   { path: '/contact', label: 'Kontakt' }
 ]
