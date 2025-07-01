@@ -111,7 +111,7 @@ const Home = () => (
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <Name>Tom Tiedtke</Name>
-      <Claim>Ich entwickle moderne, performante Webanwendungen mit Fokus auf Design, Animation und Nutzererlebnis.</Claim>
+      <Claim>Websites, Mobile-Apps & Prozessoptimierung</Claim>
     </Hero>
     <Grid>
       <Card
